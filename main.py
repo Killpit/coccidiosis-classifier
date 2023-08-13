@@ -1,3 +1,5 @@
 from src.CoccidiosisClassifier import logger
+from src.CoccidiosisClassifier.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
 
-logger.info("Welcome to the project log")
+STAGE_NAME = "Data Ingestion stage"
+
