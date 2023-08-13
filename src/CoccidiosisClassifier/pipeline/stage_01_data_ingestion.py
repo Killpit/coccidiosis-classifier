@@ -1,1 +1,2 @@
 from src.CoccidiosisClassifier.config import ConfigManager
+from src.CoccidiosisClassifier.components import data_ingestion
