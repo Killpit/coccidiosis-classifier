@@ -1,3 +1,3 @@
-from src.CoccidiosisClassifier.config import configuration
-from src.CoccidiosisClassifier.components import data_ingestion
+from src.CoccidiosisClassifier.config.configuration import ConfigurationManager
+from src.CoccidiosisClassifier.components.data_ingestion import DataIngestion
 from src.CoccidiosisClassifier import logger
