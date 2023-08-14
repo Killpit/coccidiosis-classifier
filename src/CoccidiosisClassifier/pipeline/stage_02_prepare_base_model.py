@@ -1,0 +1,1 @@
+from CoccidiosisClassifier.config import ConfigurationManager
