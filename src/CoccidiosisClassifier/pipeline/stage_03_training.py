@@ -1,6 +1,7 @@
 from src.CoccidiosisClassifier.config.configuration import ConfigurationManager
 from src.CoccidiosisClassifier.components.prepare_callbacks import PrepareCallback
 from src.CoccidiosisClassifier.components.training import Training
+from src.CoccidiosisClassifier import logger
 
 STAGE_NAME = "Training"
 
@@ -21,3 +22,13 @@ class ModelTrainingPipeline:
         training.train(
             callback_list = callback_list
         )
+
+if __name__ == '__main__':
+    try:
+        logger.info(f"**************")
+        logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+        obj = ModelTrainingPipeline()
+        obj.main()
+        logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx===========x")
+    except Exception as e:
+        
