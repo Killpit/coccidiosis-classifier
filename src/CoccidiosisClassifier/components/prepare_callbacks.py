@@ -3,7 +3,7 @@ import urllib.request as request
 from zipfile import ZipFile
 import tensorflow as tf
 import time
-from CoccidiosisClassifier.entity.config_entity import PrepareCallbacksConfig
+from src.CoccidiosisClassifier.entity.config_entity import PrepareCallbacksConfig
 
 class PrepareCallback:
     def __init__(self, config: PrepareCallbacksConfig):
