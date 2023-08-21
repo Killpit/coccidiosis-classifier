@@ -1,7 +1,9 @@
 import os
 from src.CoccidiosisClassifier.entity.config_entity import (DataIngestionConfig, 
+                                                            EvaluationConfig, 
                                                             PrepareBaseModelConfig, 
-                                                            PrepareCallbacksConfig, TrainingConfig)
+                                                            PrepareCallbacksConfig, 
+                                                            TrainingConfig)
 from src.CoccidiosisClassifier.utils.common import read_yaml, create_directories
 from src.CoccidiosisClassifier.constants.__init__ import CONFIG_FILE_PATH, PARAMS_FILE_PATH
 from pathlib import Path
@@ -86,3 +88,13 @@ class ConfigurationManager:
         )
 
         return training_config
+    
+    def get_validation_config(self) -> EvaluationConfig:
+        eval_config = EvaluationConfig(
+            path_of_model = "artifacts/training/model.h5",
+            training_data = "artifacts/data_ingestion/CoccidiosisDataset",
+            all_params = self.params,
+            params_image_size = self.params.IMAGE_SIZE,
+            params_batch_size = self.params.BATCH_SIZE
+        )
+        return eval_config
