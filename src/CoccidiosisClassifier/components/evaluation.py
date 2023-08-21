@@ -1,6 +1,6 @@
 import tensorflow as tf
 from pathlib import Path
-from CoccidiosisClassifier.pipeline.stage_03_training import ModelTrainingPipeline
+from src.CoccidiosisClassifier.pipeline.stage_03_training import ModelTrainingPipeline
 from src.CoccidiosisClassifier.entity.config_entity import EvaluationConfig
 from src.CoccidiosisClassifier.utils.common import save_json
 
