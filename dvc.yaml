@@ -6,3 +6,19 @@ stages:
       - /Users/atatekeli/PycharmProjects/coccidiosis-classifier/config/config.yaml
     outs:
       - artifacts/data_ingestion/CoccidiosisDataset
+
+  prepare_base_model:
+    cmd: python src/CoccidiosisClassifier/pipeline/stage_02_prepare_base_model.py
+    deps:
+      - src/CoccidiosisClassifier/pipeline/stage_02_prepare_base_model.py
+      - /Users/atatekeli/PycharmProjects/coccidiosis-classifier/config/config.yaml
+    params:
+      - IMAGE_SIZE
+      - INCLUDE_TOP
+      - CLASSES
+      - WEIGHTS
+      - LEARNING_RATE
+    outs:
+      - artifacts/prepare_base_model
+
+  
