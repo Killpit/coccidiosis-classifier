@@ -23,4 +23,16 @@ stages:
 
   training:
     cmd: python src/CoccidiosisClassifier/pipeline/stage_03_training.py
-    
+    deps:
+      - src/CoccidiosisClassifier/pipeline/stage_03_training.py
+      - src/CoccidkillerClassifier/components/prepare_callback.py
+      - /Users/atatekeli/PycharmProjects/coccidiosis-classifier/config/config.yaml
+      - artifacts/data_ingestion/CoccidiosisDataset
+      - artifacts/prepare_base_model
+    params:
+      - IMAGE_SIZE
+      - EPOCHS
+      - BATCH_SIZE
+      - AUGMENTATION
+    outs:
+      - artifacts/training/model.h5
