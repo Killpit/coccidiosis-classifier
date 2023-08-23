@@ -1,7 +1,7 @@
-from src.CoccidiosisClassifier.config.configuration import ConfigurationManager
-from src.CoccidiosisClassifier.components.prepare_callbacks import PrepareCallback
-from src.CoccidiosisClassifier.components.training import Training
-from src.CoccidiosisClassifier import logger
+from CoccidiosisClassifier.config.configuration import ConfigurationManager
+from CoccidiosisClassifier.components.prepare_callbacks import PrepareCallback
+from CoccidiosisClassifier.components.training import Training
+from CoccidiosisClassifier import logger
 
 STAGE_NAME = "Training"
 

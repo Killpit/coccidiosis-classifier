@@ -1,6 +1,6 @@
-from src.CoccidiosisClassifier.config.configuration import ConfigurationManager
-from src.CoccidiosisClassifier.components.evaluation import Evaluation
-from src.CoccidiosisClassifier import logger
+from CoccidiosisClassifier.config.configuration import ConfigurationManager
+from CoccidiosisClassifier.components.evaluation import Evaluation
+from CoccidiosisClassifier import logger
 
 STAGE_NAME = "Evaluation stage"
 

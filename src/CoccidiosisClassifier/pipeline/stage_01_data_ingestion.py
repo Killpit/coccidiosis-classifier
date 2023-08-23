@@ -1,6 +1,6 @@
-from src.CoccidiosisClassifier.config.configuration import ConfigurationManager
-from src.CoccidiosisClassifier.components.data_ingestion import DataIngestion
-from src.CoccidiosisClassifier import logger
+from CoccidiosisClassifier.config.configuration import ConfigurationManager
+from CoccidiosisClassifier.components.data_ingestion import DataIngestion
+from CoccidiosisClassifier import logger
 
 STAGE_NAME = "Data Ingestion stage"
 

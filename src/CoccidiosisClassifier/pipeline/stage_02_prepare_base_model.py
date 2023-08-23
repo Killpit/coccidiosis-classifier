@@ -1,6 +1,6 @@
-from src.CoccidiosisClassifier.config.configuration import ConfigurationManager
-from src.CoccidiosisClassifier.components.prepare_base_model import PrepareBaseModel
-from src.CoccidiosisClassifier import logger
+from CoccidiosisClassifier.config.configuration import ConfigurationManager
+from CoccidiosisClassifier.components.prepare_base_model import PrepareBaseModel
+from CoccidiosisClassifier import logger
 
 STAGE_NAME = "Prepare base model"
 
