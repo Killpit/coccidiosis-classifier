@@ -1,9 +1,9 @@
 import os
 import urllib.request as request
 import zipfile
-from src.CoccidiosisClassifier.entity.config_entity import DataIngestionConfig
-from src.CoccidiosisClassifier import logger
-from src.CoccidiosisClassifier.utils.common import get_size
+from CoccidiosisClassifier.entity.config_entity import DataIngestionConfig
+from CoccidiosisClassifier import logger
+from CoccidiosisClassifier.utils.common import get_size
 from pathlib import Path
 
 class DataIngestion:
