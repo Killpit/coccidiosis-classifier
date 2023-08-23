@@ -1,8 +1,8 @@
-from src.CoccidiosisClassifier import logger
-from src.CoccidiosisClassifier.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
-from src.CoccidiosisClassifier.pipeline.stage_02_prepare_base_model import PrepareBaseModelTrainingPipeline
-from src.CoccidiosisClassifier.pipeline.stage_03_training import ModelTrainingPipeline
-from src.CoccidiosisClassifier.pipeline.stage_04_evaluation import EvaluationPipeline
+from CoccidiosisClassifier import logger
+from CoccidiosisClassifier.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
+from CoccidiosisClassifier.pipeline.stage_02_prepare_base_model import PrepareBaseModelTrainingPipeline
+from CoccidiosisClassifier.pipeline.stage_03_training import ModelTrainingPipeline
+from CoccidiosisClassifier.pipeline.stage_04_evaluation import EvaluationPipeline
 
 STAGE_NAME = "Data Ingestion stage"
 try:
