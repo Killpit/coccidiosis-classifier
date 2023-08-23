@@ -1,0 +1,117 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/CoccidiosisClassifier/pipeline/stage_01_data_ingestion.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: f4264e20adde5c2f9e0915f98410a47d
+      size: 869
+    - path: src/CoccidiosisClassifier/pipeline/stage_01_data_ingestion.py
+      hash: md5
+      md5: b4f7c8a6d5931e9494a6e8fde248973e
+      size: 901
+    outs:
+    - path: artifacts/data_ingestion/Coccidiosis Dataset
+      hash: md5
+      md5: 4ec0b041dd55744c60dba19c241425f9.dir
+      size: 22275581
+      nfiles: 705
+  prepare_base_model:
+    cmd: python src/CoccidiosisClassifier/pipeline/stage_02_prepare_base_model.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: f4264e20adde5c2f9e0915f98410a47d
+      size: 869
+    - path: src/CoccidiosisClassifier/pipeline/stage_02_prepare_base_model.py
+      hash: md5
+      md5: 91f76e5a8982468514cb4347d3a6a7d5
+      size: 992
+    params:
+      params.yaml:
+        CLASSES: 2
+        IMAGE_SIZE:
+        - 224
+        - 224
+        - 3
+        INCLUDE_TOP: false
+        LEARNING_RATE: 0.01
+        WEIGHTS: imagenet
+    outs:
+    - path: artifacts/prepare_base_model
+      hash: md5
+      md5: 64daddce645d2bba2d77372b5748eba5.dir
+      size: 118058104
+      nfiles: 2
+  training:
+    cmd: python src/CoccidiosisClassifier/pipeline/stage_03_training.py
+    deps:
+    - path: artifacts/data_ingestion/Coccidiosis Dataset
+      hash: md5
+      md5: 4ec0b041dd55744c60dba19c241425f9.dir
+      size: 22275581
+      nfiles: 705
+    - path: artifacts/prepare_base_model
+      hash: md5
+      md5: 64daddce645d2bba2d77372b5748eba5.dir
+      size: 118058104
+      nfiles: 2
+    - path: config/config.yaml
+      hash: md5
+      md5: f4264e20adde5c2f9e0915f98410a47d
+      size: 869
+    - path: src/CoccidiosisClassifier/components/prepare_callbacks.py
+      hash: md5
+      md5: 1a06086bd4bea5a9a4944912abf36211
+      size: 1038
+    - path: src/CoccidiosisClassifier/pipeline/stage_03_training.py
+      hash: md5
+      md5: 38a8dbfafd39511a270af64004d9bc3d
+      size: 1242
+    params:
+      params.yaml:
+        AUGMENTATION: true
+        BATCH_SIZE: 32
+        EPOCHS: 5
+        IMAGE_SIZE:
+        - 224
+        - 224
+        - 3
+    outs:
+    - path: artifacts/training/model.h5
+      hash: md5
+      md5: c066cdb72cb0b0be0eced520a9c0cc2e
+      size: 59138368
+  evaluation:
+    cmd: python src/CoccidiosisClassifier/pipeline/stage_04_evaluation.py
+    deps:
+    - path: artifacts/data_ingestion/Coccidiosis Dataset
+      hash: md5
+      md5: 4ec0b041dd55744c60dba19c241425f9.dir
+      size: 22275581
+      nfiles: 705
+    - path: artifacts/training/model.h5
+      hash: md5
+      md5: c066cdb72cb0b0be0eced520a9c0cc2e
+      size: 59138368
+    - path: config/config.yaml
+      hash: md5
+      md5: f4264e20adde5c2f9e0915f98410a47d
+      size: 869
+    - path: src/CoccidiosisClassifier/pipeline/stage_04_evaluation.py
+      hash: md5
+      md5: 1776103dfbda9d5ec30e2319c32ccdde
+      size: 856
+    params:
+      params.yaml:
+        BATCH_SIZE: 32
+        IMAGE_SIZE:
+        - 224
+        - 224
+        - 3
+    outs:
+    - path: scores.json
+      hash: md5
+      md5: b5879bebe635686959913c2d0ab5b312
+      size: 68
