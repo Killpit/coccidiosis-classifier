@@ -1,11 +1,11 @@
 import os
-from src.CoccidiosisClassifier.entity.config_entity import (DataIngestionConfig, 
+from CoccidiosisClassifier.entity.config_entity import (DataIngestionConfig,
                                                             EvaluationConfig, 
                                                             PrepareBaseModelConfig, 
                                                             PrepareCallbacksConfig, 
                                                             TrainingConfig)
-from src.CoccidiosisClassifier.utils.common import read_yaml, create_directories
-from src.CoccidiosisClassifier.constants.__init__ import CONFIG_FILE_PATH, PARAMS_FILE_PATH
+from CoccidiosisClassifier.utils.common import read_yaml, create_directories
+from CoccidiosisClassifier.constants.__init__ import CONFIG_FILE_PATH, PARAMS_FILE_PATH
 from pathlib import Path
 
 class ConfigurationManager:
