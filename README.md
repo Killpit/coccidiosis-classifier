@@ -4,6 +4,10 @@
 
 -Coccidiosis disease detection by using chicken fecal images
 
+## Problem Statement
+
+-Coccidiosis is a highly contagious disease with a high mortality rate. As it is demanding to treat chickens and do health check ups, a chicken farm can be scanned for fecal matter to determine whether chickens would need treatment for coccidiosis.
+
 ## Objectives
 
 -Learning to deploy ML models on Azure and AWS
